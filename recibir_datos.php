@@ -26,4 +26,23 @@ if (mysqli_query($conexion, $sql)) {
     http_response_code(500);
     echo "Error INSERT: " . mysqli_error($conexion);
 }
+//notificaciones whasa
+if ($ppm > 400) { 
+
+$telefono = "573227170232"; // número con código país 
+
+$mensaje = urlencode("⚠️ Alerta: nivel de CO₂ peligroso ($ppm ppm). Verifica la zona."); 
+
+$url = "https://api.callmebot.com/whatsapp.php?phone=
+$telefono&text=$mensaje&apikey=5478237"; 
+
+ 
+
+file_get_contents($url); 
+
+} 
+
+
+
+
 ?>
